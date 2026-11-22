@@ -20,6 +20,7 @@ from extract_utils.main import (
     ExtractUtils,
     ExtractUtilsModule,
 )
+from extract_utils.module import FirmwareProprietaryFile
 
 namespace_imports = [
     'device/xiaomi/sm8550-common',
@@ -70,6 +71,7 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libui.so', 'libui-v34.so'),
 }
 
+
 module = ExtractUtilsModule(
     'fuxi',
     'xiaomi',
@@ -77,8 +79,10 @@ module = ExtractUtilsModule(
     lib_fixups=lib_fixups,
     namespace_imports=namespace_imports,
     check_elf=True,
-    add_firmware_proprietary_file=True,
 )
+module.proprietary_files.append(FirmwareProprietaryFile(
+    module.proprietary_file_path('proprietary-firmware.txt'),
+))
 
 if __name__ == '__main__':
     utils = ExtractUtils.device_with_common(
