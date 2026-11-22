@@ -40,6 +40,9 @@ $(call soong_config_set,lineage_powershare,powershare_path,/sys/class/qcom-batte
 PRODUCT_PACKAGES += \
     vendor.lineage.powershare-service.default
 
+# WeChat fingerprint payment (Qualcomm SOTER)
+PRODUCT_PACKAGES += SoterService
+
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH)
