@@ -19,6 +19,13 @@
 | Front Camera            | 32 MP, f/2.0, 22mm (wide), 1/3.14", 0.7µm                                   |
 | Release Date            | December 2022                                                               |
 
+## Wi-Fi concurrency
+
+The device overlay enables local-only STA+STA so a Quick Share hotspot can use
+a second Wi-Fi client interface when the HAL can allocate one. Validate by
+completing a hotspot-mode transfer while the primary interface stays associated
+with the original access point.
+
 ## Device Picture
 
 ![Xiaomi 13](https://www.giztop.com/media/catalog/product/cache/dc206057cdd42d7e34b9d36e347785ca/p/m/pms_1670745529.40767182.png)
