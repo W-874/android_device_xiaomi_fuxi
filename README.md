@@ -1,5 +1,29 @@
 #  Device Tree for Xiaomi 13 (fuxi)
 
+## Standalone uwuAOSP build
+
+Select `uwu_fuxi-cp2a-user`. The build also needs the Xiaomi vendor and
+MiuiCamera trees and the shared secure-hardware init file at
+`device/xiaomi/common/init/init.secure-hardware.rc`. Supply a local RSA-4096
+AVB private key with `FUXI_STANDALONE_AVB_KEY` or at `$OUT_DIR/fuxi-avb.pem`.
+
+The Dolby Codec2 service builds from source. Its proprietary libraries are
+not included. Before building, populate
+`device/xiaomi/fuxi/dolby-vision-recording/lib64/` with the prepared Dolby
+libraries from fuxi firmware `OS3.0.309.0.WMCCNXM`:
+
+- `c2.dolby.client.so`, `c2.dolby.store.so`, `c2.dolby.hevc.enc.so`,
+  `c2.dolby.hevc.dec.so`, and `c2.dolby.hevc.sec.dec.so`.
+- `libEncoderProcessor.so`, `libDecoderProcessor.so`, `libeglcore.so`, and
+  `libdolbyottcameracontrol.so`.
+- `libfuxi_dv_codec2_soft_common.so` and
+  `libfuxi_dv_sfplugin_ccodec_utils.so`, the renamed vendor libraries with
+  matching SONAMEs and dependencies.
+
+The prepared client links `libcodec2_shim.so`; the HEVC libraries and the
+renamed soft-common library reference the corresponding renamed dependencies.
+Do not add the stock `dolbycodec2` executable or local libraries to Git.
+
 ## Spec Sheet
 
 | Feature                 | Specification                                                              |

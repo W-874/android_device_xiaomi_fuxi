@@ -18,6 +18,8 @@ BOARD_VENDOR_KERNEL_MODULES_LOAD := $(filter-out $(fuxi_gki_modules),$(BOARD_VEN
 # device-specific flash plan so a source-built DTBO is not omitted.
 TARGET_BOARD_FASTBOOT_INFO_FILE := $(DEVICE_PATH)/fastboot-info.txt
 
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DEVICE_PATH)/dolby-vision-recording/compatibility_matrix.xml
+
 # Use a locally supplied RSA-4096 key, never the public AOSP AVB test key.
 # For a local engineering build the build wrapper generates it in OUT_DIR.
 BOARD_AVB_KEY_PATH := $(or $(FUXI_STANDALONE_AVB_KEY),$(OUT_DIR)/fuxi-avb.pem)

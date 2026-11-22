@@ -22,3 +22,5 @@ PRODUCT_MANUFACTURER := Xiaomi
 
 PRODUCT_BUILD_SUPER_PARTITION := true
 PRODUCT_OTA_ENFORCE_VINTF_KERNEL_REQUIREMENTS := true
+
+$(call inherit-product, device/xiaomi/fuxi/dolby-vision-recording/recording.mk)
