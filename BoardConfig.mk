@@ -31,4 +31,9 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 # Sepolicy
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 
+# The generated board fragment only lists firmware partitions for A/B OTA.
 include vendor/xiaomi/fuxi/BoardConfigVendor.mk
+
+include vendor/xiaomi/camera/BoardConfigVendor.mk
+
+include $(DEVICE_PATH)/BoardConfigStandalone.mk

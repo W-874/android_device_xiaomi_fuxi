@@ -1,0 +1,20 @@
+# fuxi standalone: the matching stock firmware must already be installed.
+version 1
+flash boot
+flash init_boot
+flash dtbo
+flash recovery
+flash vendor_boot
+flash --apply-vbmeta vbmeta
+flash vbmeta_system
+reboot fastboot
+update-super
+flash system
+flash system_ext
+flash product
+flash vendor
+flash odm
+flash system_dlkm
+flash vendor_dlkm
+if-wipe erase userdata
+if-wipe erase metadata
