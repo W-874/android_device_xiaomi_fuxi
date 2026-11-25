@@ -7,3 +7,9 @@ persist.sys.miui_resolution=1080x2400
 
 # USB
 vendor.usb.product_string=Xiaomi 13
+
+# Stock Dolby playback profile and version.
+ro.vendor.audio.dolby.spatial.profile=movie
+ro.vendor.dolby.dax.version=DAX3_3.8.5.20_r1
+ro.vendor.audio.dolby.dax.version=DAX3_3.8.5.20_r1
+ro.vendor.audio.dolby.dax.support=true

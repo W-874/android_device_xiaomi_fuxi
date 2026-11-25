@@ -4,12 +4,31 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+# Select the fuxi effects configuration before the common kalama fallback.
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/config/audio/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio/sku_kalama/audio_effects.xml
+
 # Inherit from sm8550-common
 TARGET_HAS_UDFPS := true
 $(call inherit-product, device/xiaomi/sm8550-common/common.mk)
 
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/xiaomi/fuxi/fuxi-vendor.mk)
+
+# Keep MusicFX as the standard per-session equalizer alongside global DAP.
+$(call soong_config_set_bool,lunaris_dolby,keep_stock_music_panel,true)
+
+# The stock DMS EventHandler uses the legacy vendor AHandler layout.
+$(call soong_config_set_bool,frameworks_av,legacy_vendor_ahandler,true)
+
+# Dolby Atmos playback. The camera Codec2 product is configured separately.
+PRODUCT_PACKAGES += \
+    LunarisDolby \
+    DolbyOverlayFuxi \
+    libhwdap \
+    libdlbvol \
+    libswgamedap \
+    vendor.dolby.hardware.dms@2.0-service
 
 # Audio
 PRODUCT_COPY_FILES += \

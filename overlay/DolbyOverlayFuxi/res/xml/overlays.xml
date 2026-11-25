@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<overlay>
+    <item target="array/dolby_profile_values" value="@array/fuxi_dolby_profile_values" />
+    <item target="array/dolby_preset_values" value="@array/fuxi_dolby_preset_values" />
+    <item target="bool/dolby_speaker_virtualizer_supported" value="true" />
+    <item target="bool/dolby_output_profiles_supported" value="true" />
+    <item target="bool/dolby_async_dms_writes" value="true" />
+</overlay>
